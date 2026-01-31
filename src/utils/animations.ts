@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 
 // Staggered container for lists/grids
 export const staggerContainer: Variants = {
@@ -51,11 +51,28 @@ export const fadeIn: Variants = {
 }
 
 // Button hover effect
-export const buttonHover = {
-  scale: 1.02,
-  transition: { duration: 0.2 },
+// export const buttonHover = {
+//   scale: 1.02,
+//   transition: { duration: 0.2 },
+// }
+
+// export const buttonTap = {
+//   scale: 0.98,
+// }
+export const buttonHover: object = {
+  scale: 1.05,
+  transition: {
+    type: 'spring',
+    stiffness: 50,
+    damping: 20,
+  },
 }
 
-export const buttonTap = {
-  scale: 0.98,
+export const buttonTap: object = {
+  scale: 0.95,
+  transition: {
+    type: 'spring',
+    stiffness: 50,
+    damping: 20,
+  },
 }

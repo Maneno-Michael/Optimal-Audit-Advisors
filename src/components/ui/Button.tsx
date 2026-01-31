@@ -30,8 +30,10 @@ export function Button({
   }
   return (
     <motion.button
-      whileHover={buttonHover}
-      whileTap={buttonTap}
+    //   whileHover={buttonHover}
+    //   whileTap={buttonTap}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       className={clsx(baseStyles, variants[variant], sizes[size], className)}
       {...props}
     >
