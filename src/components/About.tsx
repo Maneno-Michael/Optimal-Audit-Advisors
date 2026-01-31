@@ -7,31 +7,104 @@ export function About() {
   return (
     <Section id="about" background="light">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
-        <div className="relative">
-          <div className="aspect-square rounded-2xl overflow-hidden bg-slate-200">
-            {/* Abstract representation of office/professional setting since we can't use real images */}
-            <div className="w-full h-full bg-slate-900 relative">
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500 via-slate-900 to-slate-900"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-slate-900 to-transparent">
-                <div className="text-white">
-                  <p className="font-bold text-2xl">Excellence in Action</p>
-                  <p className="text-slate-300 mt-2">
-                    Serving Kenya's Top Businesses
-                  </p>
-                </div>
-              </div>
-            </div>
+        <motion.div
+          className="relative"
+          initial={{
+            opacity: 0,
+            x: -30,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+        >
+          {/* Main Image */}
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=750&fit=crop&q=80"
+              alt="Professional team meeting"
+              className="w-full h-full object-cover"
+            />
           </div>
-          {/* Experience Badge */}
-          <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-slate-100 max-w-[200px]">
-            <p className="text-4xl font-bold text-amber-500 mb-1">10+</p>
-            <p className="text-sm font-medium text-slate-900">
-              Years of Professional Excellence
-            </p>
-          </div>
-        </div>
 
-        <div>
+          {/* Secondary Floating Image */}
+          <motion.div
+            className="absolute -bottom-8 -right-8 w-48 h-48 rounded-xl overflow-hidden shadow-xl border-4 border-white hidden md:block"
+            initial={{
+              opacity: 0,
+              scale: 0.8,
+            }}
+            whileInView={{
+              opacity: 1,
+              scale: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.3,
+            }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&h=300&fit=crop&q=80"
+              alt="Professional accountant"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* Experience Badge */}
+          <motion.div
+            className="absolute -top-6 -left-6 bg-slate-900 text-white p-6 rounded-xl shadow-xl"
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.4,
+            }}
+          >
+            <p className="text-4xl font-bold text-amber-500 mb-1">10+</p>
+            <p className="text-sm font-medium text-slate-300">
+              Years of Excellence
+            </p>
+          </motion.div>
+
+          {/* Decorative Element */}
+          <div className="absolute -z-10 top-8 left-8 w-full h-full rounded-2xl bg-amber-100/50" />
+        </motion.div>
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+          }}
+        >
           <h2 className="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-3">
             About Optimal Audit Advisors
           </h2>
@@ -59,19 +132,37 @@ export function About() {
               'Personalized financial strategies',
               'Confidential and ethical service',
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
-                  <Check className="w-3 h-3" />
+              <motion.div
+                key={i}
+                className="flex items-center gap-3"
+                initial={{
+                  opacity: 0,
+                  x: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.1 * i,
+                }}
+              >
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-white">
+                  <Check className="w-3.5 h-3.5" />
                 </div>
                 <span className="text-slate-700 font-medium">{item}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           <a href="#contact">
             <Button variant="secondary">Meet Our Team</Button>
           </a>
-        </div>
+        </motion.div>
       </div>
     </Section>
   )

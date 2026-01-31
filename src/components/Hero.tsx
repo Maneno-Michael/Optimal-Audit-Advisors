@@ -85,7 +85,7 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Visual Element */}
+          {/* Visual Element - Image Collage */}
           <motion.div
             initial={{
               opacity: 0,
@@ -101,15 +101,34 @@ export function Hero() {
             }}
             className="relative hidden lg:block"
           >
-            <div className="relative z-10 bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 max-w-md ml-auto transform rotate-2 hover:rotate-0 transition-transform duration-500">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <div className="text-sm text-slate-500">Tax Savings</div>
-                  <div className="text-3xl font-bold text-slate-900">
-                    KES 2.4M+
-                  </div>
-                </div>
-                <div className="h-10 w-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+            {/* Main Hero Image */}
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=450&fit=crop&q=80"
+                alt="Professional business consultation"
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+            </div>
+
+            {/* Floating Stats Card */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 0.8,
+                duration: 0.6,
+              }}
+              className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-slate-100 z-20"
+            >
+              <div className="flex items-center gap-4">
+                <div className="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
                   <svg
                     className="w-6 h-6"
                     fill="none"
@@ -124,48 +143,55 @@ export function Hero() {
                     />
                   </svg>
                 </div>
-              </div>
-              <div className="space-y-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-slate-100 flex-shrink-0" />
-                    <div className="flex-1 space-y-2">
-                      <div className="h-2 bg-slate-100 rounded w-3/4" />
-                      <div className="h-2 bg-slate-100 rounded w-1/2" />
-                    </div>
+                <div>
+                  <div className="text-2xl font-bold text-slate-900">
+                    KES 2.4M+
                   </div>
-                ))}
-              </div>
-              <div className="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center">
-                <div className="text-sm font-medium text-slate-900">
-                  Audit Status
-                </div>
-                <div className="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wide">
-                  Compliant
+                  <div className="text-sm text-slate-500">
+                    Tax Savings for Clients
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Floating decorative card */}
+            {/* Floating Image Card */}
             <motion.div
               animate={{
-                y: [0, -20, 0],
+                y: [0, -15, 0],
               }}
               transition={{
                 repeat: Infinity,
-                duration: 6,
+                duration: 5,
                 ease: 'easeInOut',
               }}
-              className="absolute -bottom-10 -left-10 bg-slate-900 p-6 rounded-xl shadow-xl z-20 max-w-xs"
+              className="absolute -top-4 -right-4 w-32 h-32 rounded-xl overflow-hidden shadow-xl z-20 border-4 border-white"
             >
-              <div className="flex items-center gap-4 mb-3">
-                <div className="h-3 w-3 rounded-full bg-red-500" />
-                <div className="h-3 w-3 rounded-full bg-yellow-500" />
-                <div className="h-3 w-3 rounded-full bg-green-500" />
-              </div>
-              <div className="space-y-2">
-                <div className="h-2 bg-slate-700 rounded w-32" />
-                <div className="h-2 bg-slate-800 rounded w-24" />
+              <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&h=200&fit=crop&q=80"
+                alt="Financial analysis"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            {/* Compliance Badge */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.8,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                delay: 1,
+                duration: 0.5,
+              }}
+              className="absolute top-1/2 -right-8 transform -translate-y-1/2 bg-slate-900 text-white px-4 py-3 rounded-lg shadow-xl z-20"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <span className="text-sm font-medium">100% KRA Compliant</span>
               </div>
             </motion.div>
           </motion.div>
