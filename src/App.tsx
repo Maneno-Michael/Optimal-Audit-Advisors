@@ -1,23 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom'
 import { Navbar } from './components/Navbar'
-import { Hero } from './components/Hero'
-import { Services } from './components/Services'
-import { About } from './components/About'
-import { WhyChooseUs } from './components/WhyChooseUs'
-import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
+import { HomePage } from '../src/pages/Homepage'
+import { ServiceDetailPage } from './pages/ServiceDetailPage'
+// ScrollToTop component to handle scroll restoration
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
 export function App() {
   return (
-    <div className="min-h-screen bg-stone-50 text-slate-900 font-sans selection:bg-amber-100 selection:text-amber-900">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <WhyChooseUs />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen bg-stone-50 text-slate-900 font-sans selection:bg-amber-100 selection:text-amber-900 flex flex-col">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services/:slug" element={<ServiceDetailPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   )
 }

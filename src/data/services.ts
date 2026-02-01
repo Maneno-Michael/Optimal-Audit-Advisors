@@ -8,8 +8,10 @@ import {
   ShieldCheck,
   Building2,
   ArrowLeftRight,
-  LucideIcon,
 } from 'lucide-react'
+import type { FC, SVGProps } from 'react'
+
+export type IconType = FC<SVGProps<SVGSVGElement>>
 
 export interface ServiceFeature {
   title: string
@@ -31,7 +33,7 @@ export interface ServiceData {
   slug: string
   title: string
   shortDescription: string
-  icon: LucideIcon
+  icon: IconType
   heroImage: string
   fullDescription: string
   features: ServiceFeature[]
@@ -47,7 +49,7 @@ export const servicesData: ServiceData[] = [
     title: 'Payroll Services',
     shortDescription:
       'Comprehensive payroll management ensuring timely processing and full compliance with Kenyan labor laws.',
-    icon: Calculator,
+    icon: Calculator as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -118,7 +120,7 @@ export const servicesData: ServiceData[] = [
     title: 'Accounting & Bookkeeping',
     shortDescription:
       'Accurate financial record keeping to help you monitor performance and make informed business decisions.',
-    icon: BookOpen,
+    icon: BookOpen as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -188,7 +190,7 @@ export const servicesData: ServiceData[] = [
     title: 'Taxation & Tax Compliance',
     shortDescription:
       'Strategic tax planning and filing to minimize liability while ensuring full adherence to KRA regulations.',
-    icon: Scale,
+    icon: Scale as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -258,7 +260,7 @@ export const servicesData: ServiceData[] = [
     title: 'Business Advisory Services',
     shortDescription:
       'Expert guidance on business structure, growth strategies, and financial optimization for sustainable success.',
-    icon: Briefcase,
+    icon: Briefcase as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -326,7 +328,7 @@ export const servicesData: ServiceData[] = [
     title: 'Kenya Diaspora Tax Services',
     shortDescription:
       'Specialized tax solutions for Kenyans living abroad, managing local investments and compliance.',
-    icon: Globe2,
+    icon: Globe2 as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -393,7 +395,7 @@ export const servicesData: ServiceData[] = [
     title: 'VAT Filing Services',
     shortDescription:
       'Timely and accurate Value Added Tax computation and filing to avoid penalties and interest.',
-    icon: FileText,
+    icon: FileText as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -460,7 +462,7 @@ export const servicesData: ServiceData[] = [
     title: 'Auditing and Assurance',
     shortDescription:
       'Independent examination of financial statements to provide credibility and assurance to stakeholders.',
-    icon: ShieldCheck,
+    icon: ShieldCheck as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -505,7 +507,7 @@ export const servicesData: ServiceData[] = [
       },
       {
         title: 'Reporting',
-        description: 'Issuing the independent auditor’s report.',
+        description: "Issuing the independent auditor's report.",
       },
     ],
     faqs: [
@@ -527,7 +529,7 @@ export const servicesData: ServiceData[] = [
     title: 'Monthly Rental Income Tax',
     shortDescription:
       'Management of monthly rental income tax obligations for landlords and property managers.',
-    icon: Building2,
+    icon: Building2 as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -588,7 +590,7 @@ export const servicesData: ServiceData[] = [
     title: 'Transfer Pricing',
     shortDescription:
       "Advisory on inter-company transactions to ensure compliance with arm's length principles.",
-    icon: ArrowLeftRight,
+    icon: ArrowLeftRight as IconType,
     heroImage:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&q=80',
     fullDescription:
