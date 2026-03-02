@@ -7,8 +7,9 @@ import {
 } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
-import { HomePage } from '../src/pages/Homepage'
+import { HomePage } from './pages/HomePage'
 import { ServiceDetailPage } from './pages/ServiceDetailPage'
+import { WhatsAppWidget } from './components/WhatsAppWidget'
 // ScrollToTop component to handle scroll restoration
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -28,6 +29,7 @@ export function App() {
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
         </Routes>
         <Footer />
+        <WhatsAppWidget />
       </div>
     </Router>
   )
