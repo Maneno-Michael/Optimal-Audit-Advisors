@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Section } from './ui/Section'
 import { Button } from './ui/Button'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, AlertTriangle } from 'lucide-react'
 export function Contact() {
   const [formState, setFormState] = useState({
     name: '',
@@ -11,7 +11,6 @@ export function Contact() {
   })
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here
     console.log('Form submitted:', formState)
     alert('Thank you for your message. We will get back to you shortly.')
   }
@@ -33,13 +32,22 @@ export function Contact() {
             Get in Touch
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            Let's Discuss Your Financial Future
+            Facing a Tax Dispute? Let's Talk.
           </h3>
-          <p className="text-slate-600 text-lg mb-10">
-            Ready to optimize your business? Schedule a consultation with our
-            experts today. We are here to answer your questions and provide
-            tailored solutions.
+          <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+            Whether you have received a KRA demand notice, are facing an audit,
+            or need expert tax advisory — our specialists are ready to help. The
+            sooner you act, the better your outcome.
           </p>
+
+          {/* Urgency note */}
+          <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-lg p-4 mb-10">
+            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+            <p className="text-amber-800 text-sm font-medium">
+              KRA objections must be filed within <strong>30 days</strong> of an
+              assessment. Don't delay — contact us today.
+            </p>
+          </div>
 
           <div className="space-y-8">
             <div className="flex items-start gap-4">
@@ -50,7 +58,7 @@ export function Contact() {
                 <h4 className="text-lg font-bold text-slate-900 mb-1">
                   Call Us
                 </h4>
-                <p className="text-slate-600">+254 700 000 000</p>
+                <p className="text-slate-600">+254 720 565 289</p>
                 <p className="text-slate-500 text-sm mt-1">
                   Mon-Fri from 8am to 5pm
                 </p>
@@ -90,6 +98,9 @@ export function Contact() {
         </div>
 
         <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-8">
+          <h4 className="text-lg font-bold text-slate-900 mb-6">
+            Request a Free Consultation
+          </h4>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
@@ -134,7 +145,7 @@ export function Contact() {
                 htmlFor="service"
                 className="block text-sm font-medium text-slate-700 mb-2"
               >
-                Service Interested In
+                How Can We Help?
               </label>
               <select
                 id="service"
@@ -143,13 +154,20 @@ export function Contact() {
                 value={formState.service}
                 onChange={handleChange}
               >
-                <option value="">Select a service...</option>
+                <option value="">Select a matter...</option>
+                <option value="kra-dispute">
+                  KRA Tax Dispute / Assessment
+                </option>
+                <option value="tribunal">
+                  Tax Appeals Tribunal Representation
+                </option>
+                <option value="audit">KRA Audit / Investigation</option>
+                <option value="penalty">Penalty & Interest Waiver</option>
+                <option value="tax-advisory">Tax Advisory & Planning</option>
                 <option value="payroll">Payroll Services</option>
                 <option value="accounting">Accounting & Bookkeeping</option>
-                <option value="tax">Taxation & Compliance</option>
-                <option value="advisory">Business Advisory</option>
+                <option value="vat">VAT Filing</option>
                 <option value="diaspora">Diaspora Tax Services</option>
-                <option value="audit">Auditing & Assurance</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -159,7 +177,7 @@ export function Contact() {
                 htmlFor="message"
                 className="block text-sm font-medium text-slate-700 mb-2"
               >
-                Message
+                Describe Your Situation
               </label>
               <textarea
                 id="message"
@@ -167,7 +185,7 @@ export function Contact() {
                 rows={4}
                 required
                 className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all resize-none"
-                placeholder="How can we help you?"
+                placeholder="e.g. I received a KRA assessment for KES 2M and need help filing an objection..."
                 value={formState.message}
                 onChange={handleChange}
               />
