@@ -27,8 +27,8 @@ export function About() {
           {/* Main Image */}
           <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=750&fit=crop&q=80"
-              alt="Professional team meeting"
+              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=750&fit=crop&q=80"
+              alt="Professional tax advisory team"
               className="w-full h-full object-cover"
             />
           </div>
@@ -53,8 +53,8 @@ export function About() {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&h=300&fit=crop&q=80"
-              alt="Professional accountant"
+              src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=300&fit=crop&q=80"
+              alt="Tax advisor"
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -84,7 +84,6 @@ export function About() {
             </p>
           </motion.div>
 
-          {/* Decorative Element */}
           <div className="absolute -z-10 top-8 left-8 w-full h-full rounded-2xl bg-amber-100/50" />
         </motion.div>
 
@@ -109,28 +108,29 @@ export function About() {
             About Optimal Audit Advisors
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            Your Trusted Partner in Financial Growth
+            Kenya's Trusted Tax Advisory & Dispute Resolution Experts
           </h3>
           <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-            At Optimal Audit Advisors, we believe that sound financial
-            management is the cornerstone of every successful enterprise. Based
-            in Kenya, we provide world-class audit, tax, and advisory services
-            designed to help you navigate the complexities of the financial
-            landscape.
+            Optimal Audit Advisors is a specialist tax advisory and consulting
+            firm based in Nairobi, Kenya. Our core strength lies in tax dispute
+            resolution — we represent individuals and businesses facing KRA
+            assessments, audits, and enforcement actions, including full
+            representation at the <strong>Tax Appeals Tribunal (TAT)</strong>.
           </p>
           <p className="text-slate-600 mb-8 leading-relaxed">
-            Our team of certified professionals brings together deep local
-            expertise with global best practices. Whether you are a startup, an
-            established corporation, or a member of the diaspora, we are
-            dedicated to optimizing your financial potential.
+            Our team of Certified Public Accountants and tax specialists brings
+            deep knowledge of Kenyan tax law, KRA processes, and tribunal
+            procedures. We combine this expertise with a relentless commitment
+            to protecting our clients' rights and achieving the best possible
+            outcomes.
           </p>
 
           <div className="space-y-4 mb-8">
             {[
               'Certified Public Accountants (CPA-K)',
-              'Deep understanding of KRA Tax Laws',
-              'Personalized financial strategies',
-              'Confidential and ethical service',
+              'Specialists in Tax Appeals Tribunal proceedings',
+              'Deep expertise in KRA objection & ADR processes',
+              'Confidential, ethical, and results-driven service',
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -160,7 +160,7 @@ export function About() {
           </div>
 
           <a href="#contact">
-            <Button variant="secondary">Meet Our Team</Button>
+            <Button variant="secondary">Schedule a Free Consultation</Button>
           </a>
         </motion.div>
       </div>
