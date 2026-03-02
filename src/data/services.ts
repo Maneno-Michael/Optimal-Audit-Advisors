@@ -8,10 +8,10 @@ import {
   ShieldCheck,
   Building2,
   ArrowLeftRight,
+  Leaf,
+  Gavel,
+  LucideIcon,
 } from 'lucide-react'
-import type { FC, SVGProps } from 'react'
-
-export type IconType = FC<SVGProps<SVGSVGElement>>
 
 export interface ServiceFeature {
   title: string
@@ -33,7 +33,7 @@ export interface ServiceData {
   slug: string
   title: string
   shortDescription: string
-  icon: IconType
+  icon: LucideIcon
   heroImage: string
   fullDescription: string
   features: ServiceFeature[]
@@ -44,12 +44,92 @@ export interface ServiceData {
 
 export const servicesData: ServiceData[] = [
   {
+    id: 'tax-disputes',
+    slug: 'kra-tax-disputes-appeals',
+    title: 'KRA Tax Disputes & Appeals',
+    shortDescription:
+      'Expert representation at the Tax Appeals Tribunal and KRA dispute resolution — we fight to protect your rights and reduce your tax burden.',
+    icon: Gavel,
+    heroImage:
+      'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=600&fit=crop&q=80',
+    fullDescription:
+      'Receiving a tax assessment or demand notice from KRA can be overwhelming and financially devastating. You do not have to face it alone. Our Tax Disputes & Appeals practice is the cornerstone of what we do. We provide aggressive, expert representation at every stage of the dispute resolution process — from lodging a formal objection with KRA, to appearing before the Tax Appeals Tribunal (TAT), and escalating to the High Court where necessary. Our team has deep knowledge of the Tax Procedures Act, Income Tax Act, VAT Act, and the rules of the Tax Appeals Tribunal, giving your case the strongest possible foundation.',
+    features: [
+      {
+        title: 'Tax Appeals Tribunal Representation',
+        description:
+          'Full representation before the TAT, including filing of statements of facts, legal submissions, and oral hearings.',
+      },
+      {
+        title: 'KRA Objection Filing',
+        description:
+          'Drafting and filing of formal objections to KRA assessments within the statutory 30-day window.',
+      },
+      {
+        title: 'Alternative Dispute Resolution (ADR)',
+        description:
+          "Negotiating settlements through KRA's ADR framework to resolve disputes faster and cost-effectively.",
+      },
+      {
+        title: 'Penalty & Interest Waiver Applications',
+        description:
+          'Preparing and submitting applications for waiver of penalties and interest under Section 94 of the Tax Procedures Act.',
+      },
+    ],
+    benefits: [
+      "Expert representation by professionals who know KRA's processes inside out",
+      'Significantly reduce or eliminate disputed tax assessments',
+      'Protect your business from asset seizure and enforcement actions',
+      'Achieve faster resolution through ADR and negotiation',
+      'Peace of mind knowing your case is in experienced hands',
+    ],
+    process: [
+      {
+        title: 'Case Review',
+        description:
+          'We analyse the KRA assessment, demand notice, or audit findings in detail.',
+      },
+      {
+        title: 'Strategy Development',
+        description:
+          'We identify the strongest legal and factual grounds to challenge the assessment.',
+      },
+      {
+        title: 'Objection / ADR',
+        description:
+          'We file a formal objection or initiate ADR negotiations with KRA.',
+      },
+      {
+        title: 'Tribunal / Court',
+        description:
+          'If unresolved, we escalate to the Tax Appeals Tribunal or High Court.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How long do I have to object to a KRA assessment?',
+        answer:
+          'You have 30 days from the date of the assessment to lodge a formal objection with KRA. Missing this deadline can be fatal to your case, so contact us immediately.',
+      },
+      {
+        question: 'What is the Tax Appeals Tribunal?',
+        answer:
+          'The Tax Appeals Tribunal (TAT) is an independent body established under the Tax Appeals Tribunal Act to hear and determine tax disputes between taxpayers and KRA.',
+      },
+      {
+        question: 'Can disputes be settled without going to the Tribunal?',
+        answer:
+          'Yes. KRA has an Alternative Dispute Resolution (ADR) framework that allows disputes to be settled through negotiation. We have successfully resolved many cases through ADR, saving clients significant time and money.',
+      },
+    ],
+  },
+  {
     id: 'payroll',
     slug: 'payroll-services',
     title: 'Payroll Services',
     shortDescription:
       'Comprehensive payroll management ensuring timely processing and full compliance with Kenyan labor laws.',
-    icon: Calculator as IconType,
+    icon: Calculator,
     heroImage:
       'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -120,7 +200,7 @@ export const servicesData: ServiceData[] = [
     title: 'Accounting & Bookkeeping',
     shortDescription:
       'Accurate financial record keeping to help you monitor performance and make informed business decisions.',
-    icon: BookOpen as IconType,
+    icon: BookOpen,
     heroImage:
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -190,7 +270,7 @@ export const servicesData: ServiceData[] = [
     title: 'Taxation & Tax Compliance',
     shortDescription:
       'Strategic tax planning and filing to minimize liability while ensuring full adherence to KRA regulations.',
-    icon: Scale as IconType,
+    icon: Scale,
     heroImage:
       'https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -260,7 +340,7 @@ export const servicesData: ServiceData[] = [
     title: 'Business Advisory Services',
     shortDescription:
       'Expert guidance on business structure, growth strategies, and financial optimization for sustainable success.',
-    icon: Briefcase as IconType,
+    icon: Briefcase,
     heroImage:
       'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -328,7 +408,7 @@ export const servicesData: ServiceData[] = [
     title: 'Kenya Diaspora Tax Services',
     shortDescription:
       'Specialized tax solutions for Kenyans living abroad, managing local investments and compliance.',
-    icon: Globe2 as IconType,
+    icon: Globe2,
     heroImage:
       'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -395,7 +475,7 @@ export const servicesData: ServiceData[] = [
     title: 'VAT Filing Services',
     shortDescription:
       'Timely and accurate Value Added Tax computation and filing to avoid penalties and interest.',
-    icon: FileText as IconType,
+    icon: FileText,
     heroImage:
       'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -462,7 +542,7 @@ export const servicesData: ServiceData[] = [
     title: 'Auditing and Assurance',
     shortDescription:
       'Independent examination of financial statements to provide credibility and assurance to stakeholders.',
-    icon: ShieldCheck as IconType,
+    icon: ShieldCheck,
     heroImage:
       'https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -529,7 +609,7 @@ export const servicesData: ServiceData[] = [
     title: 'Monthly Rental Income Tax',
     shortDescription:
       'Management of monthly rental income tax obligations for landlords and property managers.',
-    icon: Building2 as IconType,
+    icon: Building2,
     heroImage:
       'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -590,7 +670,7 @@ export const servicesData: ServiceData[] = [
     title: 'Transfer Pricing',
     shortDescription:
       "Advisory on inter-company transactions to ensure compliance with arm's length principles.",
-    icon: ArrowLeftRight as IconType,
+    icon: ArrowLeftRight,
     heroImage:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&q=80',
     fullDescription:
@@ -644,6 +724,86 @@ export const servicesData: ServiceData[] = [
         question: "What happens if I don't have a policy?",
         answer:
           'KRA may deem your prices non-compliant and impose significant tax adjustments and penalties.',
+      },
+    ],
+  },
+  {
+    id: 'esg',
+    slug: 'esg-accounting',
+    title: 'ESG Accounting Services',
+    shortDescription:
+      'Comprehensive Environmental, Social, and Governance reporting and accounting to help your business meet global sustainability standards.',
+    icon: Leaf,
+    heroImage:
+      'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&h=600&fit=crop&q=80',
+    fullDescription:
+      "Environmental, Social, and Governance (ESG) accounting is rapidly becoming a critical requirement for businesses seeking investment, regulatory compliance, and long-term sustainability. Our ESG Accounting Services help you measure, report, and improve your organization's impact across all three pillars.",
+    features: [
+      {
+        title: 'ESG Reporting Frameworks',
+        description:
+          'Alignment with GRI, SASB, TCFD, and UN SDG reporting standards.',
+      },
+      {
+        title: 'Carbon Footprint Accounting',
+        description:
+          'Measurement and reporting of Scope 1, 2, and 3 greenhouse gas emissions.',
+      },
+      {
+        title: 'Social Impact Measurement',
+        description:
+          'Quantifying community, employee, and supply chain social metrics.',
+      },
+      {
+        title: 'Governance Assessment',
+        description:
+          'Review of board structure, ethics policies, and anti-corruption controls.',
+      },
+    ],
+    benefits: [
+      'Attract ESG-conscious investors and lenders',
+      'Meet regulatory and stock exchange disclosure requirements',
+      'Identify and mitigate sustainability-related risks',
+      'Enhance brand reputation and stakeholder trust',
+      'Align with global best practices and SDGs',
+    ],
+    process: [
+      {
+        title: 'Materiality Assessment',
+        description:
+          'Identifying the ESG issues most relevant to your business and stakeholders.',
+      },
+      {
+        title: 'Data Collection',
+        description:
+          'Gathering environmental, social, and governance data across your operations.',
+      },
+      {
+        title: 'Analysis & Benchmarking',
+        description:
+          'Measuring performance against industry peers and global frameworks.',
+      },
+      {
+        title: 'Report Preparation',
+        description:
+          'Drafting a credible, transparent ESG report ready for publication.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is ESG reporting mandatory in Kenya?',
+        answer:
+          'The Nairobi Securities Exchange (NSE) requires listed companies to publish sustainability reports.',
+      },
+      {
+        question: 'Which ESG framework should we use?',
+        answer:
+          'The right framework depends on your industry and stakeholders. We help you select and implement the most appropriate standard.',
+      },
+      {
+        question: 'Can small businesses benefit from ESG accounting?',
+        answer:
+          'Absolutely. ESG practices improve operational efficiency, attract talent, and open doors to green financing.',
       },
     ],
   },
