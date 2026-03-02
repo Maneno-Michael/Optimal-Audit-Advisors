@@ -1,14 +1,24 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Gavel, Phone } from 'lucide-react'
 import { Button } from './ui/Button'
 import { fadeInUp, staggerContainer } from '../utils/animations'
+import { Link } from 'react-router-dom'
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-stone-50">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-100/50 -skew-x-12 translate-x-20" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&h=900&fit=crop&q=80"
+          alt="Tax tribunal"
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/95 to-slate-800/80" />
+      </div>
+
+      {/* Amber accent line at top */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600" />
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -21,71 +31,91 @@ export function Hero() {
           >
             <motion.div
               variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-sm font-medium mb-6"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
-              </span>
-              Premier Financial Services in Kenya
+              <Gavel className="w-3.5 h-3.5" />
+              Kenya's Tax Dispute Specialists
             </motion.div>
 
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6 tracking-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 tracking-tight"
             >
-              Precision in <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">
-                Every Audit.
+              Facing a <span className="text-amber-400">KRA Dispute?</span>
+              <br />
+              <span className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-300 mt-2 block">
+                Don't face it alone.
               </span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg"
+              className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg"
             >
-              Optimal Audit Advisors delivers expert accounting, tax compliance,
-              and business advisory services tailored for Kenyan businesses and
-              the diaspora.
+              Optimal Audit Advisors specialises in tax advisory and KRA dispute
+              resolution. We represent clients at the{' '}
+              <strong className="text-white">Tax Appeals Tribunal</strong>,
+              negotiate with KRA, and fight to protect your rights and reduce
+              your tax burden.
             </motion.p>
 
             <motion.div
               variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <a href="#contact">
-                <Button size="lg" className="w-full sm:w-auto group">
-                  Schedule Consultation
+              <Link to="/services/kra-tax-disputes-appeals">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full sm:w-auto group"
+                >
+                  Get Dispute Help Now
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </a>
-              <a href="#services">
+              </Link>
+              <a href="#contact">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto border-slate-500 text-white hover:bg-slate-800"
                 >
-                  Explore Services
+                  <Phone className="mr-2 w-4 h-4" />
+                  Free Consultation
                 </Button>
               </a>
             </motion.div>
 
             <motion.div
               variants={fadeInUp}
-              className="mt-12 flex items-center gap-8 text-sm text-slate-500 font-medium"
+              className="mt-12 grid grid-cols-3 gap-6 border-t border-slate-700 pt-10"
             >
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-amber-500" />
-                <span>Certified Experts</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-amber-500" />
-                <span>KRA Compliant</span>
-              </div>
+              {[
+                {
+                  value: '500+',
+                  label: 'Cases Resolved',
+                },
+                {
+                  value: '95%',
+                  label: 'Success Rate',
+                },
+                {
+                  value: '10+',
+                  label: 'Years Experience',
+                },
+              ].map((stat, i) => (
+                <div key={i}>
+                  <div className="text-2xl md:text-3xl font-bold text-amber-400">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-slate-400 mt-1">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
-          {/* Visual Element - Image Collage */}
+          {/* Right Panel - Urgency Card */}
           <motion.div
             initial={{
               opacity: 0,
@@ -96,41 +126,17 @@ export function Hero() {
               x: 0,
             }}
             transition={{
-              duration: 1,
+              duration: 0.8,
               delay: 0.4,
             }}
-            className="relative hidden lg:block"
+            className="hidden lg:block"
           >
-            {/* Main Hero Image */}
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=450&fit=crop&q=80"
-                alt="Professional business consultation"
-                className="w-full h-auto object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-            </div>
-
-            {/* Floating Stats Card */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: 0.8,
-                duration: 0.6,
-              }}
-              className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-slate-100 z-20"
-            >
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+            {/* Urgent Notice Card */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
                   <svg
-                    className="w-6 h-6"
+                    className="w-5 h-5 text-red-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -139,61 +145,70 @@ export function Hero() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
                     />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-slate-900">
-                    KES 2.4M+
-                  </div>
-                  <div className="text-sm text-slate-500">
-                    Tax Savings for Clients
-                  </div>
+                  <p className="text-white font-bold">Received a KRA Notice?</p>
+                  <p className="text-slate-400 text-sm">
+                    You have 30 days to respond
+                  </p>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Floating Image Card */}
-            <motion.div
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 5,
-                ease: 'easeInOut',
-              }}
-              className="absolute -top-4 -right-4 w-32 h-32 rounded-xl overflow-hidden shadow-xl z-20 border-4 border-white"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&h=200&fit=crop&q=80"
-                alt="Financial analysis"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-
-            {/* Compliance Badge */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.8,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                delay: 1,
-                duration: 0.5,
-              }}
-              className="absolute top-1/2 -right-8 transform -translate-y-1/2 bg-slate-900 text-white px-4 py-3 rounded-lg shadow-xl z-20"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-sm font-medium">100% KRA Compliant</span>
+              <div className="space-y-3">
+                {[
+                  'KRA Assessment / Demand Notice',
+                  'Tax Audit or Investigation',
+                  'Penalty & Interest Charges',
+                  'Agency Notices on Bank Accounts',
+                  'Tax Appeals Tribunal Matters',
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 text-slate-300 text-sm"
+                  >
+                    <ShieldCheck className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                    {item}
+                  </div>
+                ))}
               </div>
-            </motion.div>
+              <a href="#contact" className="block mt-6">
+                <button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-lg transition-colors text-sm">
+                  Get Expert Help Today →
+                </button>
+              </a>
+            </div>
+
+            {/* Process Steps */}
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                {
+                  step: '01',
+                  label: 'Free Case Review',
+                },
+                {
+                  step: '02',
+                  label: 'We File Objection',
+                },
+                {
+                  step: '03',
+                  label: 'Dispute Resolved',
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+                >
+                  <div className="text-amber-400 font-bold text-lg">
+                    {item.step}
+                  </div>
+                  <div className="text-slate-300 text-xs mt-1">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
