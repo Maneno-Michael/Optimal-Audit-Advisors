@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
-import { HomePage } from './pages/HomePage'
+import { HomePage } from './pages/Homepage'
 import { ServiceDetailPage } from './pages/ServiceDetailPage'
 import { WhatsAppWidget } from './components/WhatsAppWidget'
 // ScrollToTop component to handle scroll restoration

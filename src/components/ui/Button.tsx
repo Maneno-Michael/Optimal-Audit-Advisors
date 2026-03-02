@@ -1,19 +1,23 @@
-import React from 'react'
-import { motion, type HTMLMotionProps } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { buttonHover, buttonTap } from '../../utils/animations'
 import { clsx } from 'clsx'
+
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline'
   size?: 'sm' | 'md' | 'lg'
   children: React.ReactNode
   className?: string
   onClick?: () => void
+  disabled?: boolean
+  type?: 'button' | 'submit' | 'reset'
 }
+
 export function Button({
   variant = 'primary',
   size = 'md',
   children,
   className,
+  type = 'button',
   ...props
 }: ButtonProps) {
   const baseStyles =
@@ -21,8 +25,7 @@ export function Button({
   const variants = {
     primary: 'bg-slate-900 text-white hover:bg-slate-800 shadow-sm',
     secondary: 'bg-amber-500 text-white hover:bg-amber-600 shadow-sm',
-    outline:
-      'border border-slate-200 bg-transparent hover:bg-slate-50 text-slate-900',
+    outline: 'border border-slate-200 bg-transparent hover:bg-slate-50 text-slate-900',
   }
   const sizes = {
     sm: 'h-9 px-4 text-sm',
@@ -33,8 +36,9 @@ export function Button({
     <motion.button
       whileHover={buttonHover}
       whileTap={buttonTap}
+      type={type}
       className={clsx(baseStyles, variants[variant], sizes[size], className)}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </motion.button>
