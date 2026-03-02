@@ -10,6 +10,8 @@ export function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
+  // Navbar is over dark background when on home page and not yet scrolled
+  const isDarkBg = isHome && !isScrolled
   useEffect(() => {
     return scrollY.on('change', (latest) => {
       setIsScrolled(latest > 50)
@@ -42,23 +44,45 @@ export function Navbar() {
       }, 100)
     }
   }
+  const handleHomeClick = () => {
+    setIsOpen(false)
+    if (isHome) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    } else {
+      navigate('/')
+      setTimeout(
+        () =>
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          }),
+        50,
+      )
+    }
+  }
   const navLinks = [
     {
       name: 'Services',
       href: '#services',
+      type: 'scroll',
     },
     {
       name: 'About',
       href: '#about',
+      type: 'scroll',
     },
     {
       name: 'Why Us',
       href: '#why-us',
+      type: 'scroll',
     },
   ]
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || !isHome ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white py-4 transition-all duration-300 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.18)] border-b border-slate-900/10"
       initial={{
         y: -100,
       }}
@@ -76,13 +100,11 @@ export function Navbar() {
             <div className="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-amber-500 font-bold text-xl group-hover:bg-slate-800 transition-colors">
               OA
             </div>
-            <div
-              className={`flex flex-col ${isScrolled || !isHome ? 'text-slate-900' : 'text-slate-900'}`}
-            >
-              <span className="font-bold text-lg leading-none">
+            <div className="flex flex-col">
+              <span className="font-bold text-lg leading-none text-slate-900">
                 Optimal Audit
               </span>
-              <span className="text-xs font-medium text-amber-600 tracking-wider">
+              <span className="text-xs font-medium text-amber-500 tracking-wider">
                 ADVISORS
               </span>
             </div>
@@ -90,12 +112,18 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
+            <button
+              onClick={handleHomeClick}
+              className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
+            >
+              Home
+            </button>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors cursor-pointer"
+                className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors cursor-pointer"
               >
                 {link.name}
               </a>
@@ -109,7 +137,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-slate-600"
+            className="md:hidden p-2 text-slate-700"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -136,11 +164,17 @@ export function Navbar() {
           className="md:hidden bg-white border-t border-slate-100"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            <button
+              onClick={handleHomeClick}
+              className="text-base font-medium text-slate-700 py-2 text-left"
+            >
+              Home
+            </button>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-slate-600 py-2"
+                className="text-base font-medium text-slate-700 py-2"
                 onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.name}
