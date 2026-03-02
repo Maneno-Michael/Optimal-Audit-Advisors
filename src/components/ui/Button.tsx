@@ -1,12 +1,13 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, type HTMLMotionProps } from 'framer-motion'
 import { buttonHover, buttonTap } from '../../utils/animations'
 import { clsx } from 'clsx'
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline'
   size?: 'sm' | 'md' | 'lg'
   children: React.ReactNode
   className?: string
+  onClick?: () => void
 }
 export function Button({
   variant = 'primary',
