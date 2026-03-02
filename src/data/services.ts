@@ -10,8 +10,9 @@ import {
   ArrowLeftRight,
   Leaf,
   Gavel,
-  LucideIcon,
 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+
 
 export interface ServiceFeature {
   title: string
