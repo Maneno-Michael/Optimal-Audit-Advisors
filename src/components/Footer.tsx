@@ -16,8 +16,9 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed mb-6">
-              Providing expert financial solutions to businesses in Kenya and
-              beyond. Precision, integrity, and growth.
+              Kenya's specialist tax advisory and dispute resolution firm. We
+              represent clients before the Tax Appeals Tribunal and fight to
+              protect your rights against KRA.
             </p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-amber-500 transition-colors">
@@ -76,28 +77,31 @@ export function Footer() {
             <h4 className="text-white font-bold mb-6">Services</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="hover:text-amber-500 transition-colors">
-                  Tax Compliance
+                <a
+                  href="/services/kra-tax-disputes-appeals"
+                  className="hover:text-amber-500 transition-colors"
+                >
+                  KRA Tax Disputes & Appeals
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-amber-500 transition-colors">
-                  Auditing
+                  Tax Appeals Tribunal
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-amber-500 transition-colors">
-                  Bookkeeping
+                  Tax Advisory & Compliance
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-amber-500 transition-colors">
-                  Payroll
+                  Auditing & Assurance
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-amber-500 transition-colors">
-                  Advisory
+                  Diaspora Tax Services
                 </a>
               </li>
             </ul>
@@ -108,8 +112,8 @@ export function Footer() {
             <h4 className="text-white font-bold mb-6">Contact</h4>
             <ul className="space-y-3 text-sm">
               <li>Nairobi, Kenya</li>
-              <li>+254 700 000 000</li>
-              <li>info@optimalaudit.co.ke</li>
+              <li>+254 720 565 289</li>
+              <li>Optimalauditadvisors@gmail.com</li>
             </ul>
           </div>
         </div>

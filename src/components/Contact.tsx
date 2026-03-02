@@ -73,7 +73,7 @@ export function Contact() {
                 <h4 className="text-lg font-bold text-slate-900 mb-1">
                   Email Us
                 </h4>
-                <p className="text-slate-600">info@optimalaudit.co.ke</p>
+                <p className="text-slate-600">Optimalauditadvisors@gmail.com</p>
                 <p className="text-slate-500 text-sm mt-1">
                   We reply within 24 hours
                 </p>
